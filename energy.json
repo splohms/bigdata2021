@@ -1,0 +1,31 @@
+{"nodes":[
+{"name":"Women"},
+{"name":"Men"},
+{"name":"Internal"},
+{"name":"External"},
+{"name":"First in Family to Migrate"},
+{"name":"Not First in Family to Migrate"},
+{"name":"Migrated Alone"},
+{"name":"Migrated with Others"},
+{"name":"Succesfully Migrated"},
+{"name":"Unable to Migrate"}
+],
+"links":[
+{"source":0,"target":2,"value":5},
+{"source":1,"target":2,"value":5},
+{"source":0,"target":3,"value":25},
+{"source":1,"target":3,"value":25},
+{"source":3,"target":4,"value":10},
+{"source":2,"target":4,"value":10},
+{"source":3,"target":5,"value":50},
+{"source":2,"target":5,"value":30},
+{"source":5,"target":6,"value":40},
+{"source":5,"target":7,"value":30},
+{"source":4,"target":6,"value":40},
+{"source":4,"target":7,"value":30},
+{"source":6,"target":8,"value":40},
+{"source":7,"target":8,"value":30},
+{"source":6,"target":9,"value":40},
+{"source":7,"target":9,"value":30}
+
+]}
