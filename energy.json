@@ -5,72 +5,120 @@
 {"name":"Internal"},
 {"name": "Accompanied"},
 {"name": "Alone"},
-{"name": "Parents"},
+{"name": "Strangers"},
 {"name": "Children"},
 {"name": "Coyote"},
-{"name": "Other"},
+{"name": "Parents"},
 {"name":"External"},
 {"name": "Experienced Violence"},
 {"name":"No Violence"},
-{"name":"Violence 1"},
-{"name":"Violence 2"},
-{"name":"Violence 3"},
-{"name": "Violence Other"},
+{"name":"Theft"},
+{"name":"Armed Robbery"},
+{"name":"Intimidation"},
+{"name": "Physical Aggression"},
 {"name": "All"},
 {"name": "Changed Job"},
 {"name": "Kept Job"},
-{"name": "Job Init 1"},
-{"name": "Job Init 2"},
-{"name": "Job Init 3"},
-{"name": "Job Final 1"},
-{"name": "Job Final 2"},
-{"name": "Job Final 3"},
-{"name": "Succesfully Migrated"},
-{"name": "Unable to Migrate"}
+{"name": "Salaried Job"},
+{"name": "Informal Work"},
+{"name": "Own Business"},
+{"name": "Agriculture"},
+{"name": "Domestic Work"},
+{"name": "Unpaid Home Care"},
+{"name": "All Migrants"},
+{"name": "Not Working/Other"},
+
+{"name": "Other Known"},
+
+{"name": "Kidnapping"},
+{"name": "Other Violence"}
+
+
+
 
 
 ],
 "links":[
-{"source":0,"target":2,"value":20},
-{"source":1,"target":2,"value":20},
-{"source":0,"target":3,"value":10},
-{"source":1,"target":3,"value":10},
-{"source":2,"target":4,"value":20},
-{"source":2,"target":5,"value":20},
-{"source":4,"target":6,"value":5},
-{"source":4,"target":7,"value":5},
-{"source":4,"target":8,"value":5},
-{"source":4,"target":9,"value":5},
-{"source":6,"target":10,"value":5},
-{"source":7,"target":10,"value":5},
-{"source":8,"target":10,"value":5},
-{"source":9,"target":10,"value":5},
-{"source":5,"target":10,"value":5},
-{"source":10,"target":11,"value":5},
-{"source":10,"target":12,"value":5},
-{"source":11,"target":13,"value":5},
-{"source":11,"target":14,"value":5},
-{"source":11,"target":15,"value":5},
-{"source":11,"target":16,"value":5},
-{"source":13,"target":17,"value":5},
-{"source":14,"target":17,"value":5},
-{"source":15,"target":17,"value":5},
-{"source":16,"target":17,"value":5},
-{"source":17,"target":18,"value":5},
-{"source":17,"target":19,"value":5},
-{"source":18,"target":20,"value":5},
-{"source":18,"target":21,"value":5},
-{"source":18,"target":22,"value":5},
-
-{"source":20,"target":25,"value":5},
-{"source":21,"target":24,"value":5},
-{"source":22,"target":23,"value":5},
+{"source":0,"target":2,"value":25.1, "data": 502},
+{"source":1,"target":2,"value":55.7,"data":1114},
+{"source":0,"target":3,"value":14.35,"data":287},
+{"source":1,"target":3,"value":19.7,"data":394},
 
 
-{"source":19,"target":26,"value":5},
-{"source":19,"target":27,"value":5},
-{"source":24,"target":26,"value":5},
-{"source":25,"target":27,"value":5}
+{"source":2,"target":4,"value":61.55, "fdata":381, "mdata":850},
+{"source":2,"target":5,"value":20, "fdata":121, "mdata":264},
+
+
+
+{"source":4,"target":9,"value":8.6},
+{"source":4,"target":7,"value":9.15},
+{"source":4,"target":8,"value":32.15},
+{"source":4,"target":28,"value":3.45},
+{"source":4,"target":6,"value":14.7},
+
+
+{"source":9,"target":10,"value":8.6},
+{"source":7,"target":10,"value":9.15},
+{"source":8,"target":10,"value":32.15},
+{"source":28,"target":10,"value":3.45},
+{"source":6,"target":10,"value":14.7},
+
+{"source":5,"target":10,"value":20, "fdata":121, "mdata":264},
+
+
+
+{"source":10,"target":12,"value":44.8},
+{"source":10,"target":11,"value":36},
+
+
+
+{"source":11,"target":13,"value":10.1},
+{"source":11,"target":14,"value":2.05},
+{"source":11,"target":15,"value":1.9},
+{"source":11,"target":16,"value":2.8},
+{"source":11,"target":29,"value":1.4},
+{"source":11,"target":30,"value":8.4},
+
+
+{"source":13,"target":17,"value":10.1},
+{"source":14,"target":17,"value":2.05},
+{"source":15,"target":17,"value":1.9},
+{"source":16,"target":17,"value":2.8},
+{"source":29,"target":17,"value":1.4},
+{"source":30,"target":17,"value":8.4},
+
+{"source":3,"target":17,"value":34.05},
+
+{"source":17,"target":18,"value":62.9},
+{"source":17,"target":19,"value":45.6},
+
+{"source":18,"target":20,"value":11.55},
+{"source":18,"target":21,"value":15.15},
+{"source":18,"target":22,"value":5.4},
+{"source":18,"target":23,"value":5.25},
+{"source":18,"target":24,"value":3.25},
+{"source":18,"target":25,"value":4.5},
+{"source":18,"target":27,"value":8},
+
+{"source":20,"target":26,"value":11.55},
+{"source":21,"target":26,"value":15.15},
+{"source":22,"target":26,"value":5.4},
+{"source":23,"target":26,"value":5.25},
+{"source":24,"target":26,"value":3.25},
+{"source":25,"target":26,"value":4.5},
+{"source":27,"target":26,"value":8},
+
+{"source":19,"target":26,"value":45.6},
+{"source":27,"target":26,"value":12.6},
+{"source":12,"target":26,"value":44.8}
+
+
+
+
+
+
+
+
 
 
 
