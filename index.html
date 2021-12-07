@@ -145,7 +145,11 @@ ul{
 div.text2{
   align: right;
 }
-
+span{
+  position: relative;
+  margin-right: 20px;
+  margin-top: 15px;
+}
 .close {
   color: #aaa;
   float: right;
@@ -221,6 +225,22 @@ div.text2{
 #b1{
   margin-left: 300px;
 }
+#b2{
+  margin-left: 300px;
+  margin-top: 550px;
+}
+#b3{
+  margin-left: 300px;
+  margin-top: 850px;
+}
+#b4{
+  margin-left: 300px;
+  margin-top: 840px;
+}
+#b5{
+  margin-left: 300px;
+  margin-top: 500px;
+}
 
 #lastrow{
   padding-top: 200px;
@@ -244,32 +264,32 @@ margin-bottom: 700px;
 #t1{
   text-align:center;
   width:500px;
-  height: 700px;
+  height: 800px;
 
 }
 #t2{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 800px;
+  height: 650px;
+  margin-top: 600px;
 }
 #t3{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 1800px;
+  height: 650px;
+  margin-top: 1500px;
 }
 #t4{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 2500px;
+  height: 650px;
+  margin-top: 2300px;
 }
 #t5{
   text-align:center;
   width:500px;
   height: 700px;
-  margin-top: 3200px;
+  margin-top: 2800px;
 }
 
 #allcaptions{
@@ -280,6 +300,10 @@ margin-bottom: 700px;
 }
 #trigger4{
   position: absolute;
+}
+#conclusion{
+  position:relative;
+  margin-top: 2500px;
 }
 
 
@@ -318,10 +342,14 @@ margin-bottom: 700px;
           of people from this region each year to leave home in pursuit of better
           prospects. The journey is long and often expensive, lonely, and dangerous.
           Most often, external migrants from this region have the USA as their destination.</h2>
-        <br><br>
-        <h2>In order to better understand the experiences of people migrating,
-          let alone to begin to address the challenges faced by such people, it
-          is critical to examine how one's gender affects one's migration experience.</h2>
+          <br>
+        <h2>One size does not fit all when it comes to aiding a huge number of people.
+          An effective aid strategy must take into account the experiences of multiple
+          groups of people, in particular more vulnerable groups. It is thus
+          critical to examine how one's gender affects one's migration experience.</h2>
+          <br>
+          <h2>Using survey data generously offered by WFP, we look into the differing
+          experiences of male and female migrants to foreign countries.</h2>
         <br><br>
         <div class='note'>
           <h3>In WPF's survey, a very small percentage of respondents identified as both genders,
@@ -351,7 +379,9 @@ margin-bottom: 700px;
     </div>
     <br>
 
-    <div id ='t2' class='captions deactive'>
+    <button id="b2">Companionship</button>
+    <div id ='t2' class='captions'>
+            <span class="close">&times;</span>
             <h3>Companionship</h3>
             <p>Women are likelier to be traveling with family members than are men and
               much likelier to be traveling with a child. On the other hand, men are likelier
@@ -363,7 +393,10 @@ margin-bottom: 700px;
               in explaining men's higher migration expenses. It's also possible the more precarious circumstances
               of men's immigration lead to the higher rates of violence they experience.</p>
     </div>
-    <div id ='t3' class='captions deactive'>
+
+    <button id="b3">Violence</button>
+    <div id ='t3' class='captions'>
+            <span class="close">&times;</span>
             <h3>Violence</h3>
             <p>Men experience violence at a rate slightly higher than that of women (22% of men reported
               violence on the journey, compared with 13% of women). The types of violence they faced were also very similar.
@@ -374,20 +407,25 @@ margin-bottom: 700px;
               but men had disproportionately higher incidence of attempted murder and kidnapping. There were also 8 incidences of sexual assault for women, compared with none for men.
             </p>
     </div>
-    <div id ='t4' class='captions deactive'>
+
+    <button id="b4">Occupation Changes</button>
+    <div id ='t4' class='captions'>
+            <span class="close">&times;</span>
             <h3>Occupation Changes</h3>
             <p>Women are likelier to change occupation than men, though both groups
-              change at rates above 50%. Women mostly gravitated toward unpaid home care, 
+              change at rates above 50%. Women mostly gravitated toward unpaid home care,
               informal work, and salaried employment post-migration, while men mostly did agricultural labor, informal work and salaried employment. </p>
 
               <p>
-                The higher prevalence of unpaid work among the women migrants as opposed to men is one possible explanation for the 
+                The higher prevalence of unpaid work among the women migrants as opposed to men is one possible explanation for the
                 discrepancy in remittance amounts sent back home we see shortly.
               </p>
 
 
     </div>
-    <div id ='t5' class='captions deactive'>
+    <button id="b5">Remittance</button>
+    <div id ='t5' class='captions'>
+            <span class="close">&times;</span>
             <h3>Remittance</h3>
             <p>
               Women tend to send less remittances back home than men. This
@@ -410,33 +448,12 @@ margin-bottom: 700px;
 
       </div>
     </div>
-
-
-  </div>
-
-
-
-  <!-- <div class='row'>
-    <div class='col-12'>
-      <center><h2> Occupational Sankey Diagram</h2></center>
-    </div>
-  </div>
-
-  <div class='row spacer'></div>
-
-  <div class= 'row spacer'><div>
-  <div class= 'row col-12' id= 'row3'>
-
-    <p>Finally we conclude at the bottom of all the visualizations. We tell you what we've told already. What are the key takeaways from these data?</p>
-    <br>
-    <p>Viverra suspendisse potenti nullam ac. Mauris nunc congue nisi vitae suscipit. Nisl purus in mollis nunc sed id semper. Duis at consectetur lorem donec massa. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Curabitur vitae nunc sed velit dignissim. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Accumsan sit amet nulla facilisi morbi tempus. Mi eget mauris pharetra et ultrices. Erat imperdiet sed euismod nisi porta. Id venenatis a condimentum vitae sapien pellentesque. Adipiscing commodo elit at imperdiet dui. Parturient montes nascetur ridiculus mus.</p>
-  </div> -->
-
+  <!--
   <div id = 'sankey'></div>
   <canvas class="bottom" width="900" height="3200"></canvas>
   <svg class ="sankeytwo" width="900" height="3200" transform = "translate(-1000,1200) rotate(90) scale(1, -1)"> </svg>
+ -->
 
-  </div>
 
   <div class='row' id='conclusion'>
     <div class='co-12'>
@@ -447,17 +464,15 @@ margin-bottom: 700px;
         likelier to spend significantly more than women on their migration and experience violence of various kinds on the journey, but
         tend to change occupations less frequently and are able to send more support in the form of remittances home.
       </h3>
-  </h3>
-  </div>
+    </div>
   </div>
   <div class='spacer'></div>
   <div class='spacer'></div>
    <div class='spacer'>
-     <button id='butt' onclick="generateStory()">Click for a Migrant Story</button>
+     <button id="b6">Click for a Migrant Story</button>
    </div>
    <div class='spacer'></div>
    <div class='spacer'></div>
-
 </main>
 
 
@@ -650,27 +665,68 @@ d3.json("energy.json", function(energy) {
     <script>
         // Get the modal
         var t1 = document.getElementById("t1");
+        var t2 = document.getElementById("t2");
+        var t3 = document.getElementById("t3");
+        var t4 = document.getElementById("t4");
+        var t5 = document.getElementById("t5");
 
         // Get the button that opens the modal
         var b1 = document.getElementById("b1");
+        var b2 = document.getElementById("b2");
+        var b3 = document.getElementById("b3");
+        var b4 = document.getElementById("b4");
+        var b5 = document.getElementById("b5");
+        var b6 = document.getElementById("b6");
 
         // Get the <span> element that closes the modal
-        var span = document.getElementsByClassName("close")[0];
+        var span1 = document.getElementsByClassName("close")[0];
+        var span2 = document.getElementsByClassName("close")[1];
+        var span3 = document.getElementsByClassName("close")[2];
+        var span4 = document.getElementsByClassName("close")[3];
+        var span5 = document.getElementsByClassName("close")[4];
+
 
         // When the user clicks on the button, open the modal
         b1.onclick = function() {
           t1.style.display = "block";
         }
+        b2.onclick = function() {
+          t2.style.display = "block";
+        }
+        b3.onclick = function() {
+          t3.style.display = "block";
+        }
+        b4.onclick = function() {
+          t4.style.display = "block";
+        }
+        b5.onclick = function() {
+          t5.style.display = "block";
+        }
+        b6.onclick = function(){
+          console.log('ok');
+        }
 
         // When the user clicks on <span> (x), close the modal
-        span.onclick = function() {
+        span1.onclick = function() {
           t1.style.display = "none";
+        }
+        span2.onclick = function() {
+          t2.style.display = "none";
+        }
+        span3.onclick = function() {
+          t3.style.display = "none";
+        }
+        span4.onclick = function() {
+          t4.style.display = "none";
+        }
+        span5.onclick = function() {
+          t5.style.display = "none";
         }
 
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
+          if (event.target == t1) {
+            t1.style.display = "none";
           }
         }
     </script>
@@ -719,48 +775,6 @@ d3.json("energy.json", function(energy) {
               .addTo(controller);
 
 
-        // new ScrollMagic.Scene({
-        //       triggerElement: '#t1',
-        //       triggerhook: 0.6
-        //     })
-        //       .setClassToggle('#t1', 'activeover')
-        //       .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t2',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t2', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t3',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t3', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t4',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t4', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t5',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t5', 'activeover')
-              .addTo(controller);
-
-    // //button function
-    // var entries =  $.csv.toObjects(entriescsv):
-    // function generateStory() {
-    //   var names = {
-    //     1: ['Alma', 'Luisa', 'Marcia', 'Maribel', 'Citlali', 'Yatzil' ],
-    //     2: ['Édgar', 'Gabriel', 'Ignacio', 'Óscar', 'Rogelio', 'Sebastián', 'Atlahua', 'Iktan']}
-    // }
 
     </script>
 </body>
