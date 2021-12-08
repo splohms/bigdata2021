@@ -630,7 +630,11 @@ d3.json("energy.json", function(energy) {
       .attr("y", function(d) {return sankey.nodeWidth()})
       // .attr("dy", ".35em")
       .attr("text-anchor", "end")
-      .attr("transform", "scale(1,-1) rotate(-90)")
+      // .attr("transform", "scale(1,-1) rotate(-90)")
+      .attr("transform",function(d){
+        if(d.slant == "yes"){return "scale(-1,1) rotate(45)"}
+        else{return "scale(1,-1) rotate(-90)"}
+      })
       .attr("fill","white")
       .text(function(d) { return d.name; })
     // .filter(function(d) { return d.x < width / 2; })
