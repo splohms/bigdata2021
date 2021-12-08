@@ -365,15 +365,15 @@ margin-bottom: 700px;
     <div id ='t4' class='captions deactive'>
             <h3>Occupation Changes</h3>
             <p>Women are likelier to change occupation than men, though both groups
-              change at rates above 50%. Women mostly gravitated toward unpaid home care, 
+              change at rates above 50%. Women mostly gravitated toward unpaid home care,
               informal work, and salaried employment post-migration, while men mostly did agricultural labor, informal work and salaried employment. </p>
 
               <p>
-                The higher prevalence of unpaid work among the women migrants as opposed to men is one possible explanation for the 
+                The higher prevalence of unpaid work among the women migrants as opposed to men is one possible explanation for the
                 discrepancy in remittance amounts sent back home we see shortly.
               </p>
 
-          
+
     </div>
     <div id ='t5' class='captions deactive'>
             <h3>Remittance</h3>
@@ -432,7 +432,7 @@ margin-bottom: 700px;
         flavors of challenges throughout their migration. Women are likelier to need
         to switch occupations after migrating than their male counterparts, and can
         expect to send less money in regular remittances to their families. Men are
-        likelier to spend significantly more than women on their migration and experience violence of various kinds on the journey, but 
+        likelier to spend significantly more than women on their migration and experience violence of various kinds on the journey, but
         tend to change occupations less frequently and are able to send more support in the form of remittances home.
       </h3>
   </h3>
@@ -528,7 +528,12 @@ d3.json("energy.json", function(energy) {
       .sort(function(a, b) { return b.dy - a.dy; });
 
   link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "\n" + format(d.value); });
+      .text(function(d) {   if(d.source.name !="Women" && d.source.name !="Men" )
+        {return d.source.name + " → " + d.target.name + "\n" + "Women: " + d.fdata + "\n" + "Men: " + d.mdata}
+        if(d.source.name =="Men"){return "Total Men: 1508" + "\n" + "External: 1114" + "\n" + "Internal: 394"}
+        if(d.source.name =="Women"){return "Total Women: 789" + "\n" + "External: 502" + "\n" + "Internal: 287"} });
+
+
 
   var node = svg.append("g").selectAll(".node")
       .data(energy.nodes)
