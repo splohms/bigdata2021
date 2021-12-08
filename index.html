@@ -87,7 +87,6 @@ p {
 }
 
 button{
-  cursor: pointer;
   background-color: #e76f51;
   border-radius: 20px;
   font-family: 'Zen Kurenaido', sans-serif;
@@ -133,10 +132,6 @@ h4{
   font-family: 'Zen Kurenaido', sans-serif;
 }
 
-iframe{
-  width: 900px;
-  height: 600px;
-}
 
 ul{
   list-style-type: none;
@@ -149,6 +144,10 @@ span{
   position: relative;
   margin-right: 20px;
   margin-top: 15px;
+}
+iframe{
+  width: 1000px;
+  height: 600px;
 }
 .close {
   color: #aaa;
@@ -241,6 +240,27 @@ span{
   margin-left: 300px;
   margin-top: 500px;
 }
+#hist1{
+  position: relative;
+  margin-right: 400px;
+  text-align: center;
+  display: none;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #f4a261;
+  background-color:#264653;
+}
+#hist2{
+  position: relative;
+  margin-right: 400px;
+  margin-top: 3000px;
+  display: none;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #f4a261;
+  background-color:#264653;
+}
 
 #lastrow{
   padding-top: 200px;
@@ -298,9 +318,12 @@ margin-bottom: 700px;
   padding-left: 53%;
   margin-top: 250px;
 }
-#trigger4{
+#allhists{
   position: absolute;
+  z-index: 6;
+  padding-top: 300px;
 }
+
 #conclusion{
   position:relative;
   margin-top: 2500px;
@@ -364,18 +387,34 @@ margin-bottom: 700px;
     </div>
   </div>
 
-  <div class = 'row' id='allcaptions'>
+  <div id = 'allhists'>
+    <div id='hist1'>
+      <span class="close">&times;</span>
+      <iframe src= './Data/hist_journey.html' width=90%></iframe>
+    </div>
 
+    <div id='hist2'>
+      <span class="close">&times;</span>
+      <iframe src= './Data/hist_rem.html' width=90%></iframe>
+    </div>
+  </div>
+
+  <div class = 'row' id='allcaptions'>
     <button id="b1">Journey Cost</button>
     <div id ='t1' class='captions'>
             <span class="close">&times;</span>
             <h3>Journey Cost </h3>
-            <p>External male migrants spent an average of <b>$6470</b> on their migration journeys, while women
-              spent <b>$5000</b>. This represents an almost 30% difference.
+            <p>The median cost per female migrantion attempt was $3505.50, while that of
+              men was $6000.00, representing a 42% difference in cost.
             </p>
-            <img src= './Images/journey.png' width=90%/>
-
-            <p>We see that men are disproportionately represented at the higher end of the journey cost scale, a fact which can be explained by who they tend to go on the journey with.</p>
+            <button id="h1">Click for a Breakdown</button>
+            <p>We see that men are disproportionately represented at the higher
+              end of the journey cost scale, a fact which can be partially explained by the
+              fact that men travel more often with coyotes compared to women. 10 outliers
+              have been removed for histogram clarity. The maximum among these was a
+              staggering $70,000. From this, we can clearly see that there is a wide
+              wealth gap among migrants.
+            </p>
     </div>
     <br>
 
@@ -401,7 +440,6 @@ margin-bottom: 700px;
             <p>Men experience violence at a rate slightly higher than that of women (22% of men reported
               violence on the journey, compared with 13% of women). The types of violence they faced were also very similar.
             </p>
-
             <p>
               Both women and men most frequently reported being robbed by armed assailants, extorted and physically assaulted on the journey,
               but men had disproportionately higher incidence of attempted murder and kidnapping. There were also 8 incidences of sexual assault for women, compared with none for men.
@@ -428,12 +466,14 @@ margin-bottom: 700px;
             <span class="close">&times;</span>
             <h3>Remittance</h3>
             <p>
-              Women tend to send less remittances back home than men. This
-              could be due to a variety of factors, such as lesser-paying jobs at the destination or
-              the fact that they were often accompanied by family - unlike men - meaning they would have on average
-              less family members back home to send money to.
+              The median regular remittance sent by women is $121.50, while that of men
+              is $143.50 .  This could be due to a variety of factors, such as lesser-paying
+              jobs at the destination or the fact that women were more often accompanied by family,
+              meaning they would have a larger household to provide for in the destination country.
             </p>
-            <img src= './Images/remit.png' width=90% />
+            <button id= 'h2'>Click for a Breakdown</button>
+            <p>24 outliers have been removed for histogram clarity. The maximum among these is an
+               impressive $7,800 .</p>
 
     </div>
 
@@ -468,9 +508,7 @@ margin-bottom: 700px;
   </div>
   <div class='spacer'></div>
   <div class='spacer'></div>
-   <div class='spacer'>
-     <button id="b6">Click for a Migrant Story</button>
-   </div>
+   <div id='story'></div>
    <div class='spacer'></div>
    <div class='spacer'></div>
 </main>
@@ -676,14 +714,13 @@ d3.json("energy.json", function(energy) {
         var b3 = document.getElementById("b3");
         var b4 = document.getElementById("b4");
         var b5 = document.getElementById("b5");
-        var b6 = document.getElementById("b6");
 
         // Get the <span> element that closes the modal
-        var span1 = document.getElementsByClassName("close")[0];
-        var span2 = document.getElementsByClassName("close")[1];
-        var span3 = document.getElementsByClassName("close")[2];
-        var span4 = document.getElementsByClassName("close")[3];
-        var span5 = document.getElementsByClassName("close")[4];
+        var span1 = document.getElementsByClassName("close")[2];
+        var span2 = document.getElementsByClassName("close")[3];
+        var span3 = document.getElementsByClassName("close")[4];
+        var span4 = document.getElementsByClassName("close")[5];
+        var span5 = document.getElementsByClassName("close")[6];
 
 
         // When the user clicks on the button, open the modal
@@ -702,9 +739,7 @@ d3.json("energy.json", function(energy) {
         b5.onclick = function() {
           t5.style.display = "block";
         }
-        b6.onclick = function(){
-          console.log('ok');
-        }
+
 
         // When the user clicks on <span> (x), close the modal
         span1.onclick = function() {
@@ -728,6 +763,29 @@ d3.json("energy.json", function(energy) {
           if (event.target == t1) {
             t1.style.display = "none";
           }
+
+        var hist1 = document.getElementById("hist1");
+        var hist2 = document.getElementById("hist2");
+        var x1 = document.getElementsByClassName('close')[0];
+        var x2 = document.getElementsByClassName('close')[1];
+
+        var h1 = document.getElementById("h1");
+        var h2 = document.getElementById("h2");
+
+        h1.onclick = function(){
+          hist1.style.display = "block";
+        }
+        x1.onclick = function(){
+          hist1.style.display = "none";
+        }
+        h2.onclick = function(){
+          hist2.style.display = "block";
+        }
+        x2.onclick = function(){
+          hist2.style.display = "none";
+        }
+
+
         }
     </script>
 
