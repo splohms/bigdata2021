@@ -127,11 +127,11 @@ h3, li{
   line-height:1.3;
   padding-top: 50px;
 }
-
-iframe{
-  width: 900px;
-  height: 600px;
+h4{
+  color: #e9c46a;
+  font-family: 'Zen Kurenaido', sans-serif;
 }
+
 
 ul{
   list-style-type: none;
@@ -139,6 +139,22 @@ ul{
 
 div.text2{
   align: right;
+}
+span{
+  position: relative;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+iframe{
+  width: 1000px;
+  height: 600px;
+}
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .row{
@@ -202,6 +218,48 @@ div.text2{
   background-color: #264653;
   transition: opacity 1.2s;
   -webkit-transition: opacity 1.2s;
+  display: none;
+}
+
+#b1{
+  margin-left: 300px;
+}
+#b2{
+  margin-left: 300px;
+  margin-top: 550px;
+}
+#b3{
+  margin-left: 300px;
+  margin-top: 850px;
+}
+#b4{
+  margin-left: 300px;
+  margin-top: 840px;
+}
+#b5{
+  margin-left: 300px;
+  margin-top: 500px;
+}
+#hist1{
+  position: relative;
+  margin-right: 400px;
+  text-align: center;
+  display: none;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #f4a261;
+  background-color:#264653;
+}
+#hist2{
+  position: relative;
+  margin-right: 400px;
+  margin-top: 3000px;
+  display: none;
+  text-align: center;
+  border: 2px solid;
+  border-radius: 20px;
+  border-color: #f4a261;
+  background-color:#264653;
 }
 
 #lastrow{
@@ -226,52 +284,49 @@ margin-bottom: 700px;
 #t1{
   text-align:center;
   width:500px;
-  height: 700px;
+  height: 800px;
 
 }
 #t2{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 800px;
+  height: 650px;
+  margin-top: 600px;
 }
 #t3{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 1800px;
+  height: 650px;
+  margin-top: 1500px;
 }
 #t4{
   text-align:center;
   width:500px;
-  height: 500px;
-  margin-top: 2500px;
+  height: 650px;
+  margin-top: 2300px;
 }
 #t5{
   text-align:center;
   width:500px;
   height: 700px;
-  margin-top: 3200px;
+  margin-top: 2800px;
 }
 
-}
-
-#qlist{
-  transition: opacity 0.8s;
-   -webkit-transition: opacity 0.8s;
-}
-
-#finaltext{
-  text-align:center;
-}
 #allcaptions{
   position: absolute;
   z-index: 5;
   padding-left: 53%;
   margin-top: 250px;
 }
-#trigger4{
+#allhists{
   position: absolute;
+  z-index: 6;
+  padding-top: 300px;
+}
+
+#conclusion{
+  position:relative;
+  margin-top: 2500px;
 }
 
 
@@ -310,10 +365,14 @@ margin-bottom: 700px;
           of people from this region each year to leave home in pursuit of better
           prospects. The journey is long and often expensive, lonely, and dangerous.
           Most often, external migrants from this region have the USA as their destination.</h2>
-        <br><br>
-        <h2>In order to better understand the experiences of people migrating,
-          let alone to begin to address the challenges faced by such people, it
-          is critical to examine how one's gender affects one's migration experience.</h2>
+          <br>
+        <h2>One size does not fit all when it comes to aiding a huge number of people.
+          An effective aid strategy must take into account the experiences of multiple
+          groups of people, in particular more vulnerable groups. It is thus
+          critical to examine how one's gender affects one's migration experience.</h2>
+          <br>
+          <h2>Using survey data generously offered by WFP, we look into the differing
+          experiences of male and female migrants to foreign countries.</h2>
         <br><br>
         <div class='note'>
           <h3>In WPF's survey, a very small percentage of respondents identified as both genders,
@@ -328,18 +387,40 @@ margin-bottom: 700px;
     </div>
   </div>
 
-  <div class = 'row' id='allcaptions'>
-    <div id ='t1' class='captions deactive'>
-            <h3>Journey Cost </h3>
-            <p>External male migrants spent an average of <b>$6470</b> on their migration journeys, while women
-              spent <b>$5000</b>. This represents an almost 30% difference.
-            </p>
-            <img src= './Images/journey.png' width=90%/>
+  <div id = 'allhists'>
+    <div id='hist1'>
+      <span class="close">&times;</span>
+      <iframe src= './Data/hist_journey.html' width=90%></iframe>
+    </div>
 
-            <p>We see that men are disproportionately represented at the higher end of the journey cost scale, a fact which can be explained by who they tend to go on the journey with.</p>
+    <div id='hist2'>
+      <span class="close">&times;</span>
+      <iframe src= './Data/hist_rem.html' width=90%></iframe>
+    </div>
+  </div>
+
+  <div class = 'row' id='allcaptions'>
+    <button id="b1">Journey Cost</button>
+    <div id ='t1' class='captions'>
+            <span class="close">&times;</span>
+            <h3>Journey Cost </h3>
+            <p>The median cost per female migrantion attempt was $3505.50, while that of
+              men was $6000.00, representing a 42% difference in cost.
+            </p>
+            <button id="h1">Click for a Breakdown</button>
+            <p>We see that men are disproportionately represented at the higher
+              end of the journey cost scale, a fact which can be partially explained by the
+              fact that men travel more often with coyotes compared to women. 10 outliers
+              have been removed for histogram clarity. The maximum among these was a
+              staggering $70,000. From this, we can clearly see that there is a wide
+              wealth gap among migrants.
+            </p>
     </div>
     <br>
-    <div id ='t2' class='captions deactive'>
+
+    <button id="b2">Companionship</button>
+    <div id ='t2' class='captions'>
+            <span class="close">&times;</span>
             <h3>Companionship</h3>
             <p>Women are likelier to be traveling with family members than are men and
               much likelier to be traveling with a child. On the other hand, men are likelier
@@ -351,18 +432,23 @@ margin-bottom: 700px;
               in explaining men's higher migration expenses. It's also possible the more precarious circumstances
               of men's immigration lead to the higher rates of violence they experience.</p>
     </div>
-    <div id ='t3' class='captions deactive'>
+
+    <button id="b3">Violence</button>
+    <div id ='t3' class='captions'>
+            <span class="close">&times;</span>
             <h3>Violence</h3>
             <p>Men experience violence at a rate slightly higher than that of women (22% of men reported
               violence on the journey, compared with 13% of women). The types of violence they faced were also very similar.
             </p>
-
             <p>
               Both women and men most frequently reported being robbed by armed assailants, extorted and physically assaulted on the journey,
               but men had disproportionately higher incidence of attempted murder and kidnapping. There were also 8 incidences of sexual assault for women, compared with none for men.
             </p>
     </div>
-    <div id ='t4' class='captions deactive'>
+
+    <button id="b4">Occupation Changes</button>
+    <div id ='t4' class='captions'>
+            <span class="close">&times;</span>
             <h3>Occupation Changes</h3>
             <p>Women are likelier to change occupation than men, though both groups
               change at rates above 50%. Women mostly gravitated toward unpaid home care,
@@ -375,15 +461,19 @@ margin-bottom: 700px;
 
 
     </div>
-    <div id ='t5' class='captions deactive'>
+    <button id="b5">Remittance</button>
+    <div id ='t5' class='captions'>
+            <span class="close">&times;</span>
             <h3>Remittance</h3>
             <p>
-              Women tend to send less remittances back home than men. This
-              could be due to a variety of factors, such as lesser-paying jobs at the destination or
-              the fact that they were often accompanied by family - unlike men - meaning they would have on average
-              less family members back home to send money to.
+              The median regular remittance sent by women is $121.50, while that of men
+              is $143.50 .  This could be due to a variety of factors, such as lesser-paying
+              jobs at the destination or the fact that women were more often accompanied by family,
+              meaning they would have a larger household to provide for in the destination country.
             </p>
-            <img src= './Images/remit.png' width=90% />
+            <button id= 'h2'>Click for a Breakdown</button>
+            <p>24 outliers have been removed for histogram clarity. The maximum among these is an
+               impressive $7,800 .</p>
 
     </div>
 
@@ -398,33 +488,12 @@ margin-bottom: 700px;
 
       </div>
     </div>
-
-
-  </div>
-
-
-
-  <!-- <div class='row'>
-    <div class='col-12'>
-      <center><h2> Occupational Sankey Diagram</h2></center>
-    </div>
-  </div>
-
-  <div class='row spacer'></div>
-
-  <div class= 'row spacer'><div>
-  <div class= 'row col-12' id= 'row3'>
-
-    <p>Finally we conclude at the bottom of all the visualizations. We tell you what we've told already. What are the key takeaways from these data?</p>
-    <br>
-    <p>Viverra suspendisse potenti nullam ac. Mauris nunc congue nisi vitae suscipit. Nisl purus in mollis nunc sed id semper. Duis at consectetur lorem donec massa. Donec et odio pellentesque diam volutpat commodo sed egestas egestas. Curabitur vitae nunc sed velit dignissim. Tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Accumsan sit amet nulla facilisi morbi tempus. Mi eget mauris pharetra et ultrices. Erat imperdiet sed euismod nisi porta. Id venenatis a condimentum vitae sapien pellentesque. Adipiscing commodo elit at imperdiet dui. Parturient montes nascetur ridiculus mus.</p>
-  </div> -->
-
+  <!--
   <div id = 'sankey'></div>
   <canvas class="bottom" width="900" height="3200"></canvas>
   <svg class ="sankeytwo" width="900" height="3200" transform = "translate(-1000,1200) rotate(90) scale(1, -1)"> </svg>
+ -->
 
-  </div>
 
   <div class='row' id='conclusion'>
     <div class='co-12'>
@@ -435,17 +504,13 @@ margin-bottom: 700px;
         likelier to spend significantly more than women on their migration and experience violence of various kinds on the journey, but
         tend to change occupations less frequently and are able to send more support in the form of remittances home.
       </h3>
-  </h3>
-  </div>
+    </div>
   </div>
   <div class='spacer'></div>
   <div class='spacer'></div>
-   <div class='spacer'>
-     <button id='butt' onclick="generateStory()">Click for a Migrant Story</button>
-   </div>
+   <div id='story'></div>
    <div class='spacer'></div>
    <div class='spacer'></div>
-
 </main>
 
 
@@ -640,6 +705,94 @@ d3.json("energy.json", function(energy) {
 
     </script>
 
+    <script>
+        // Get the modal
+        var t1 = document.getElementById("t1");
+        var t2 = document.getElementById("t2");
+        var t3 = document.getElementById("t3");
+        var t4 = document.getElementById("t4");
+        var t5 = document.getElementById("t5");
+
+        // Get the button that opens the modal
+        var b1 = document.getElementById("b1");
+        var b2 = document.getElementById("b2");
+        var b3 = document.getElementById("b3");
+        var b4 = document.getElementById("b4");
+        var b5 = document.getElementById("b5");
+
+        // Get the <span> element that closes the modal
+        var span1 = document.getElementsByClassName("close")[2];
+        var span2 = document.getElementsByClassName("close")[3];
+        var span3 = document.getElementsByClassName("close")[4];
+        var span4 = document.getElementsByClassName("close")[5];
+        var span5 = document.getElementsByClassName("close")[6];
+
+
+        // When the user clicks on the button, open the modal
+        b1.onclick = function() {
+          t1.style.display = "block";
+        }
+        b2.onclick = function() {
+          t2.style.display = "block";
+        }
+        b3.onclick = function() {
+          t3.style.display = "block";
+        }
+        b4.onclick = function() {
+          t4.style.display = "block";
+        }
+        b5.onclick = function() {
+          t5.style.display = "block";
+        }
+
+
+        // When the user clicks on <span> (x), close the modal
+        span1.onclick = function() {
+          t1.style.display = "none";
+        }
+        span2.onclick = function() {
+          t2.style.display = "none";
+        }
+        span3.onclick = function() {
+          t3.style.display = "none";
+        }
+        span4.onclick = function() {
+          t4.style.display = "none";
+        }
+        span5.onclick = function() {
+          t5.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+          if (event.target == t1) {
+            t1.style.display = "none";
+          }
+
+        var hist1 = document.getElementById("hist1");
+        var hist2 = document.getElementById("hist2");
+        var x1 = document.getElementsByClassName('close')[0];
+        var x2 = document.getElementsByClassName('close')[1];
+
+        var h1 = document.getElementById("h1");
+        var h2 = document.getElementById("h2");
+
+        h1.onclick = function(){
+          hist1.style.display = "block";
+        }
+        x1.onclick = function(){
+          hist1.style.display = "none";
+        }
+        h2.onclick = function(){
+          hist2.style.display = "block";
+        }
+        x2.onclick = function(){
+          hist2.style.display = "none";
+        }
+
+
+        }
+    </script>
 
     <script type="text/javascript">
         var controller = new ScrollMagic.Controller();
@@ -678,56 +831,13 @@ d3.json("energy.json", function(energy) {
 
         //fade out img2, map
         new ScrollMagic.Scene({
-              triggerElement: '#t1',
+              triggerElement: '#b1',
               triggerHook: 0.9
             })
               .setClassToggle('#img2', 'deactive')
               .addTo(controller);
 
-        new ScrollMagic.Scene({
-              triggerElement: '#t1',
-              triggerHook: 0.2
-            })
-              .setClassToggle('#t1', 'activeover')
-              .addTo(controller);
 
-        new ScrollMagic.Scene({
-              triggerElement: '#t2',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t2', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t3',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t3', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t4',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t4', 'activeover')
-              .addTo(controller);
-
-        new ScrollMagic.Scene({
-              triggerElement: '#t5',
-              triggerHook: 0.4
-            })
-              .setClassToggle('#t5', 'activeover')
-              .addTo(controller);
-
-
-
-    // //button function
-    // var entries =  $.csv.toObjects(entriescsv):
-    // function generateStory() {
-    //   var names = {
-    //     1: ['Alma', 'Luisa', 'Marcia', 'Maribel', 'Citlali', 'Yatzil' ],
-    //     2: ['Édgar', 'Gabriel', 'Ignacio', 'Óscar', 'Rogelio', 'Sebastián', 'Atlahua', 'Iktan']}
-    // }
 
     </script>
 </body>
