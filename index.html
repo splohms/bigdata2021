@@ -50,6 +50,7 @@ canvas {
   position: absolute;
   margin-left: 652px;
   margin-top: 100px;
+  z-index: 1;
 }
 h1{
   color:white;
@@ -61,10 +62,26 @@ svg.sankeone{
   z-index: 5;
 }
 
-canvas.top{
-  margin-left: 50px;
-  margin-top:190px;
-  /* position:absolute; */
+.sankey-wrap{
+  position: relative;
+  width: min(900px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 900 / 3000;
+}
+
+.sankey-wrap canvas,
+.sankey-wrap svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: block;
+}
+
+svg.sankeyone{
+  z-index: 2;
 }
 
 body{
@@ -214,25 +231,6 @@ iframe{
   display: none;
 }
 
-#b1{
-  margin-left: 300px;
-}
-#b2{
-  margin-left: 300px;
-  margin-top: 550px;
-}
-#b3{
-  margin-left: 300px;
-  margin-top: 850px;
-}
-#b4{
-  margin-left: 300px;
-  margin-top: 840px;
-}
-#b5{
-  margin-left: 300px;
-  margin-top: 500px;
-}
 #hist1{
   position: relative;
   margin-right: 400px;
@@ -321,7 +319,7 @@ margin-bottom: 700px;
 
 #conclusion{
   position:relative;
-  margin-top: 2500px;
+  margin-top: 10rem;
 }
 
 
@@ -475,11 +473,13 @@ margin-bottom: 700px;
   </div>
 
   <div class = 'row base'>
-    <div class= 'col-8'>
+    <div class= 'col-12 col-md-8'>
       <h2 class= 'center'>Let's now explore the migration path for women and men.</h2>
         <div id = 'sankey'></div>
-        <canvas class="top" width="900" height="3200"></canvas>
-        <svg class ="sankeyone" width="900" height="3200" transform = "translate(-1000,1200) rotate(90) scale(1, -1)"> </svg>
+        <div class="sankey-wrap">
+          <canvas class="top" width="900" height="3000"></canvas>
+          <svg class ="sankeyone" width="900" height="3000"> </svg>
+        </div>
 
       </div>
     </div>
@@ -527,10 +527,11 @@ var formatNumber = d3.format(",.0f"),
     color = d3.scale.category20();
 
 var svg = d3.select("svg.sankeyone")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", height + margin.top + margin.bottom)
+    .attr("height", width + margin.left + margin.right)
+    .attr("viewBox", "0 0 " + (height + margin.top + margin.bottom) + " " + (width + margin.left + margin.right))
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "rotate(90) scale(1, -1) translate(" + margin.left + "," + margin.top + ")");
 
 var sankey = d3.sankey()
     .nodeWidth(15)
@@ -692,7 +693,7 @@ d3.json("energy.json", function(energy) {
   function particleEdgeCanvasPath(elapsed) {
     var context = d3.select("canvas").node().getContext("2d");
 
-    context.clearRect(0,0,900,3200);
+    context.clearRect(0,0,900,3000);
 
 
       context.fillStyle = "gray";
@@ -726,6 +727,28 @@ d3.json("energy.json", function(energy) {
         var b3 = document.getElementById("b3");
         var b4 = document.getElementById("b4");
         var b5 = document.getElementById("b5");
+
+        // Anchor the caption buttons to the sankey diagram itself (as percentages
+        // of its box) so they stay aligned with it at any screen size, instead of
+        // sitting at fixed pixel offsets from the page.
+        var sankeyWrap = document.querySelector('.sankey-wrap');
+        var captionPositions = {
+          b1: {top: 8.2,   left: 107},
+          b2: {top: 45.3,  left: 107},
+          b3: {top: 98.7,  left: 107},
+          b4: {top: 151.6, left: 107},
+          b5: {top: 184.4, left: 107}
+        };
+        if (sankeyWrap) {
+          [b1, b2, b3, b4, b5].forEach(function (btn) {
+            var pos = captionPositions[btn.id];
+            sankeyWrap.appendChild(btn);
+            btn.style.position = "absolute";
+            btn.style.margin = "0";
+            btn.style.top = pos.top + "%";
+            btn.style.left = pos.left + "%";
+          });
+        }
 
         // Get the <span> element that closes the modal
         var span1 = document.getElementsByClassName("close")[2];
