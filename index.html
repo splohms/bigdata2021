@@ -13,13 +13,6 @@
    <script src="jquery-csv.js"></script>
 
 <style>
-/* Object */
-/* {"Charcoal":"264653",
-"Persian Green":"2a9d8f",
-"Orange Yellow Crayola":"e9c46a",
-"Rose Madder":"df2935",
-"Sandy Brown":"f4a261",
-"Burnt Sienna":"e76f51"} */
 .node rect {
   cursor: move;
   fill-opacity: .9;
@@ -50,6 +43,7 @@ canvas {
   position: absolute;
   margin-left: 652px;
   margin-top: 100px;
+  z-index: 1;
 }
 h1{
   color:white;
@@ -61,10 +55,26 @@ svg.sankeone{
   z-index: 5;
 }
 
-canvas.top{
-  margin-left: 50px;
-  margin-top:190px;
-  /* position:absolute; */
+.sankey-wrap{
+  position: relative;
+  width: min(900px, 100%);
+  margin: 0 auto;
+  aspect-ratio: 900 / 3000;
+}
+
+.sankey-wrap canvas,
+.sankey-wrap svg{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: block;
+}
+
+svg.sankeyone{
+  z-index: 2;
 }
 
 body{
@@ -87,22 +97,17 @@ button{
   height: 50px;
   width: 200px;
   cursor: pointer;
+  color:#000
 
 }
-/* svg {
-  width:100%;
-  height:600px;
-  padding-left:5%;
-  padding-right:50px;
-} */
 
 h1 {
   color: #F47153;
   font-family: 'Zen Kurenaido', sans-serif;
-  font-size:60px;
+  font-size: 6rem;
   font-weight:100;
   line-height:1.3;
-  padding-bottom: 150px;
+  /* padding-bottom: 150px; */
 }
 
 h2{
@@ -117,8 +122,10 @@ h3, li{
   font-family: 'Zen Kurenaido', sans-serif;
   font-size:30px;
   font-weight:200;
-  line-height:1.3;
-  padding-top: 50px;
+  /* text-align: center; */
+  /* align-items: center;s */
+  /* line-height:1.3; */
+  /* padding-top: 50px; */
 }
 h4{
   color: #e9c46a;
@@ -154,16 +161,18 @@ iframe{
   padding-top: 100px;
 }
 .img_text{
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
 }
 
 .img{
   z-index: -5;
   position:absolute;
-  /* margin-top:0px; */
+  margin-top:0px;
+  top:0;
 }
 
 .list{
@@ -194,16 +203,23 @@ iframe{
   border-color: #f4a261;
   border-radius: 20px;
   background-color: #264653;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding: 30px;
+  text-align: center;
+
 }
 .base{
   position:relative;
   z-index:1;
 }
 .captions{
-  position: absolute;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  max-height: 85vh;
+  text-align: center;
+  width: 500px;
   border: 3px solid;
   border-color: #f4a261;
   border-radius: 20px;
@@ -212,43 +228,20 @@ iframe{
   transition: opacity 1.2s;
   -webkit-transition: opacity 1.2s;
   display: none;
+  padding: 20px;
 }
 
-#b1{
-  margin-left: 300px;
-}
-#b2{
-  margin-left: 300px;
-  margin-top: 550px;
-}
-#b3{
-  margin-left: 300px;
-  margin-top: 850px;
-}
-#b4{
-  margin-left: 300px;
-  margin-top: 840px;
-}
-#b5{
-  margin-left: 300px;
-  margin-top: 500px;
-}
-#hist1{
-  position: relative;
-  margin-right: 400px;
+#hist1, #hist2{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow-y: auto;
   text-align: center;
   display: none;
-  border: 2px solid;
-  border-radius: 20px;
-  border-color: #f4a261;
-  background-color:#264653;
-}
-#hist2{
-  position: relative;
-  margin-right: 400px;
-  margin-top: 3000px;
-  display: none;
-  text-align: center;
   border: 2px solid;
   border-radius: 20px;
   border-color: #f4a261;
@@ -259,8 +252,12 @@ iframe{
   padding-top: 200px;
 }
 #header{
-text-align:center;
-margin-bottom: 700px;
+  text-align:center;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 20rem;
 }
 
 #img1{
@@ -270,48 +267,15 @@ margin-bottom: 700px;
 #img2{
   transition: opacity 1.2s;
   -webkit-transition: opacity 1.2s;
-  top: 30;
+  top: 30px;
 
-}
-
-#t1{
-  text-align:center;
-  width:500px;
-  height: 800px;
-
-}
-#t2{
-  text-align:center;
-  width:500px;
-  height: 650px;
-  margin-top: 600px;
-}
-#t3{
-  text-align:center;
-  width:500px;
-  height: 650px;
-  margin-top: 1500px;
-}
-#t4{
-  text-align:center;
-  width:500px;
-  height: 650px;
-  margin-top: 2300px;
-}
-#t5{
-  text-align:center;
-  width:500px;
-  height: 700px;
-  margin-top: 2800px;
 }
 
 #allcaptions{
   position: absolute;
   z-index: 5;
-  margin-left: 45%;
   margin-top: 250px;
   width:0px;
-  /* margin-right: 0px;  */
 }
 #allhists{
   position: absolute;
@@ -321,7 +285,7 @@ margin-bottom: 700px;
 
 #conclusion{
   position:relative;
-  margin-top: 2500px;
+  margin-top: 10rem;
 }
 
 
@@ -336,14 +300,15 @@ margin-bottom: 700px;
   </div>
 
   <div class='row', id='header'>
-    <h1 class= 'img_text'>Characterizing Gendered Migration Journeys</h1>
-    <h3 class='img_text'>Meera Gregerson, Kwesi Afrifa, & Sarah Lohmar</h3>
+    <h1>Characterizing Gendered Migration Journeys</h1>
+    <h3 class="img_text" style="margin-top:50px;">Meera Gregerson, Kwesi Afrifa, & Sarah Lohmar</h3>
+    <br>
     <br>
     <br>
   </div>
 
   <div id = 'img2' class="img_container">
-    <img class="img" src= "./Images/mapdrawing.png" width= 150%; style= 'opacity: 0.5'/>
+    <img class="img" src= "./Images/mapdrawing.png" width= 100%; style= 'opacity: 0.5'/>
   </div>
 
   <div class='row base'>
@@ -385,12 +350,12 @@ margin-bottom: 700px;
   <div id = 'allhists'>
     <div id='hist1'>
       <span class="close">&times;</span>
-      <iframe src= './Data/hist_journey.html' width=90%></iframe>
+      <iframe src= './Data/hist_journey.html' width="80%""></iframe>
     </div>
 
     <div id='hist2'>
       <span class="close">&times;</span>
-      <iframe src= './Data/hist_rem.html' width=90%></iframe>
+      <iframe src= './Data/hist_rem.html' width="80%"></iframe>
     </div>
   </div>
 
@@ -475,23 +440,20 @@ margin-bottom: 700px;
   </div>
 
   <div class = 'row base'>
-    <div class= 'col-8'>
+    <div class= 'col-12 col-md-8'>
       <h2 class= 'center'>Let's now explore the migration path for women and men.</h2>
-        <div id = 'sankey'></div>
-        <canvas class="top" width="900" height="3200"></canvas>
-        <svg class ="sankeyone" width="900" height="3200" transform = "translate(-1000,1200) rotate(90) scale(1, -1)"> </svg>
+        <div id = 'sankey' style="margin-top: 25%;"></div>
+        <div class="sankey-wrap">
+          <canvas class="top" width="900" height="3000"></canvas>
+          <svg class ="sankeyone" width="900" height="3000"> </svg>
+        </div>
 
       </div>
     </div>
-  <!--
-  <div id = 'sankey'></div>
-  <canvas class="bottom" width="900" height="3200"></canvas>
-  <svg class ="sankeytwo" width="900" height="3200" transform = "translate(-1000,1200) rotate(90) scale(1, -1)"> </svg>
- -->
 
 
   <div class='row' id='conclusion'>
-    <div class='co-12'>
+    <div class='col-12'>
       <h3>Though the journey is difficult for everyone, men and women face different
         flavors of challenges throughout their migration. Women are likelier to need
         to switch occupations after migrating than their male counterparts, and can
@@ -527,10 +489,11 @@ var formatNumber = d3.format(",.0f"),
     color = d3.scale.category20();
 
 var svg = d3.select("svg.sankeyone")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", height + margin.top + margin.bottom)
+    .attr("height", width + margin.left + margin.right)
+    .attr("viewBox", "0 0 " + (height + margin.top + margin.bottom) + " " + (width + margin.left + margin.right))
   .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    .attr("transform", "rotate(90) scale(1, -1) translate(" + margin.left + "," + margin.top + ")");
 
 var sankey = d3.sankey()
     .nodeWidth(15)
@@ -692,7 +655,7 @@ d3.json("energy.json", function(energy) {
   function particleEdgeCanvasPath(elapsed) {
     var context = d3.select("canvas").node().getContext("2d");
 
-    context.clearRect(0,0,900,3200);
+    context.clearRect(0,0,900,3000);
 
 
       context.fillStyle = "gray";
@@ -726,6 +689,28 @@ d3.json("energy.json", function(energy) {
         var b3 = document.getElementById("b3");
         var b4 = document.getElementById("b4");
         var b5 = document.getElementById("b5");
+
+        // Anchor the caption buttons to the sankey diagram itself (as percentages
+        // of its box) so they stay aligned with it at any screen size, instead of
+        // sitting at fixed pixel offsets from the page.
+        var sankeyWrap = document.querySelector('.sankey-wrap');
+        var captionPositions = {
+          b1: {top: 0,   left: 107},
+          b2: {top: 30,  left: 107},
+          b3: {top: 60,  left: 107},
+          b4: {top: 75, left: 107},
+          b5: {top: 90, left: 107}
+        };
+        if (sankeyWrap) {
+          [b1, b2, b3, b4, b5].forEach(function (btn) {
+            var pos = captionPositions[btn.id];
+            sankeyWrap.appendChild(btn);
+            btn.style.position = "absolute";
+            btn.style.margin = "0";
+            btn.style.top = pos.top + "%";
+            btn.style.left = pos.left + "%";
+          });
+        }
 
         // Get the <span> element that closes the modal
         var span1 = document.getElementsByClassName("close")[2];
@@ -804,6 +789,14 @@ d3.json("energy.json", function(energy) {
     <script type="text/javascript">
         var controller = new ScrollMagic.Controller();
 
+        // No viewport meta tag means mobile browsers lay this page out in a
+        // zoomed-out desktop-width viewport, so trigger hooks that feel right
+        // on desktop fire almost immediately on mobile. screen.width (unlike
+        // innerWidth) still reflects the real device width, so use that to
+        // detect mobile and delay the family outline's fade-out there only.
+        var isMobile = window.screen.width <= 768;
+        var img1FadeOffset = isMobile ? window.innerHeight * 0.8 : 0;
+
         //pin img1, family
         new ScrollMagic.Scene({
           triggerElement: '#trigger1',
@@ -815,7 +808,8 @@ d3.json("energy.json", function(energy) {
         //fade out img1, family
         new ScrollMagic.Scene({
               triggerElement: '#trigger2',
-              triggerHook: 0.9
+              triggerHook: 0.9,
+              offset: img1FadeOffset
             })
               .setClassToggle('#img1', 'deactive')
               .addTo(controller);
